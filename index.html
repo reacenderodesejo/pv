@@ -114,16 +114,74 @@ img.emoji {
   background: none !important;
   padding: 0 !important;
 }
+
+
+#clock div {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    border-radius: 5px;
+    flex: 0 0 25%;
+   
+    text-align: center;
+    text-align: center;
+    color: white;
+}
+
+#clock div span {
+    font-size: 30px;
+    color: #ffffff;
+    
+    font-weight: 700;
+    padding: 2vh 4vw;
+    
+    background-color: #ff0000;
+    display: block;
+    margin: 0 5px;
+    text-align: center !important;
+    border-radius: 10px;
+
+   }
+
+   #clock2 div {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    border-radius: 5px;
+    flex: 0 0 25%;
+    
+    text-align: center;
+    text-align: center;
+  
+}
+
+#clock2 div span {
+    font-size: 30px;
+    color: #ffffff;
+    max-width: fit-content;
+    font-weight: 700;
+    padding: 2vh 4vw;
+   
+    background-color: #ff0000;
+    display: block;
+    margin: 0 5px;
+    text-align: center !important;
+    border-radius: 10px;
+
+   }
 </style>
-  <link rel='stylesheet' id='animate.css-css'  href='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/lib/css/components/animate.min.css?ver=2.5.19.1' type='text/css' media='all' />
+
+
+<link rel='stylesheet' id='animate.css-css'  href='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/lib/css/components/animate.min.css?ver=2.5.19.1' type='text/css' media='all' />
 <link rel='stylesheet' id='wp-block-library-css'  href='https://formuladodesejo.com/wp-includes/css/dist/block-library/style.min.css?ver=5.5.1' type='text/css' media='all' />
 <link rel='stylesheet' id='optimizepress-page-style-css'  href='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/pages/marketing/1/style.min.css?ver=2.5.19.1' type='text/css' media='all' />
 <link rel='stylesheet' id='optimizepress-default-css'  href='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/lib/assets/default.min.css?ver=2.5.19.1' type='text/css' media='all' />
+
+
 <script type='text/javascript' src='https://formuladodesejo.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
-
-
 <script type='text/javascript' src='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/lib/js/op-jquery-base-all.min.js?ver=2.5.19.1' id='optimizepress-op-jquery-base-all-js'></script>
-
 <script type='text/javascript' src='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/lib/js/op-video-all.min.js?ver=2.5.19.1' id='optimizepressHTML5videoAudioPlayer-js'></script>
 
 
@@ -193,5 +251,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script type='text/javascript' src='https://formuladodesejo.com/wp-content/themes/optimizePressTheme/lib/js/menus.min.js?ver=2.5.19.1' id='op-menus-js'></script>
+
+<script src="jquery.js"></script>
+<script src="jquery-3.3.1.js"></script>
+<script src="jquery.countup.min.js"></script>
+<script src="jquery.countdown.js?"></script>
+
+<script type="text/javascript">
+  var now= new Date;
+    var minu = now.getMinutes();
+    var hor = 0;
+    var m = 0;
+
+  if ((minu+30)>59) {
+    hor = 1
+    m = minu - 29;
+  }else{
+    hor =0;
+    m = 30;
+  }
+  // countdown plungin init
+  $('#clock').countdown(now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate() + " " + (now.getHours()+hor) + ":" + (m) + ":" + now.getSeconds(), function(event) {
+    $(this).html(event.strftime(''
+      +'<div><span>%D</span><p>dias</p></div>'
+      +'<div><span>%H</span><p>horas</p></div>'
+      +'<div><span>%M</span><p>minutos</p></div>'
+      +'<div><span>%S</span><p>segundos</p></div>'));
+  });
+ 
+
+  // countdown plungin init
+  $('.clock0').countdown(now.getFullYear() + "/" + (now.getMonth() + 1) + "/" + now.getDate() + " " + (now.getHours()+hor) + ":" + (m) + ":" + now.getSeconds(), function(event) {
+    $(this).html(event.strftime(''
+      +'<div><span>%D</span><p>dias</p></div>'
+      +'<div><span>%H</span><p>horas</p></div>'
+      +'<div><span>%M</span><p>minutos</p></div>'
+      +'<div><span>%S</span><p>segundos</p></div>'));
+  });
+</script>
 </body>
 </html>
